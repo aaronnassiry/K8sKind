@@ -1,0 +1,244 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1671\cocoasubrtf600
+{\fonttbl\f0\fmodern\fcharset0 Courier;\f1\froman\fcharset0 Times-Roman;\f2\fnil\fcharset0 Menlo-Regular;
+\f3\fmodern\fcharset0 Courier-Bold;\f4\fnil\fcharset0 HelveticaNeue;}
+{\colortbl;\red255\green255\blue255;\red0\green0\blue233;\red0\green0\blue0;\red26\green26\blue26;
+\red255\green255\blue255;\red16\green60\blue192;\red0\green0\blue0;\red236\green240\blue240;\red57\green57\blue57;
+\red10\green82\blue135;\red173\green173\blue173;\red197\green197\blue197;\red52\green52\blue52;\red38\green38\blue38;
+\red245\green245\blue245;\red0\green0\blue0;\red50\green98\blue178;\red23\green28\blue33;\red249\green249\blue249;
+}
+{\*\expandedcolortbl;;\cssrgb\c0\c0\c93333;\csgray\c0;\cssrgb\c13333\c13333\c13333;
+\cssrgb\c100000\c100000\c100000;\cssrgb\c6667\c33333\c80000;\cssrgb\c0\c0\c0;\cssrgb\c94118\c95294\c95294;\cssrgb\c29020\c29020\c29020;
+\cssrgb\c0\c40000\c60000;\cssrgb\c73333\c73333\c73333;\cssrgb\c81569\c81569\c81569;\cssrgb\c26667\c26667\c26667;\cssrgb\c20000\c20000\c20000;
+\cssrgb\c96863\c96863\c96863;\cssrgb\c0\c0\c0\c3922;\cssrgb\c25098\c47059\c75294;\cssrgb\c11765\c14510\c17255;\cssrgb\c98039\c98039\c98039;
+}
+\margl1440\margr1440\vieww23800\viewh11480\viewkind0
+\deftab720
+\pard\pardeftab720\sl280\partightenfactor0
+
+\f0\fs28 \cf2 \expnd0\expndtw0\kerning0
+\ul \ulc2 \
+\
+\pard\pardeftab720\sl280\partightenfactor0
+{\field{\*\fldinst{HYPERLINK "https://github.com/dhinojosa/working-with-helm"}}{\fldrslt \cf2 https://github.com/dhinojosa/working-with-helm}}\
+\
+\pard\pardeftab720\sl280\partightenfactor0
+{\field{\*\fldinst{HYPERLINK "https://kind.sigs.k8s.io/"}}{\fldrslt \cf2 https://kind.sigs.k8s.io/}}\
+\
+\pard\pardeftab720\sl280\partightenfactor0
+\cf2 \ulnone No Tiller in Vesion 3\
+\
+help iniit installs tiller on to your k8s cluster\
+\
+\cf3 \kerning1\expnd0\expndtw0 \CocoaLigature0 brew install go\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardeftab720\pardirnatural\partightenfactor0
+brew install helm@2\
+/usr/local/Cellar/helm@2/2.16.5/bin/helm\
+helm version\
+\
+brew install  kind\
+kind delete cluster\
+kind create cluster\
+kubectl cluster-info --context kind-kind\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardeftab720\pardirnatural\partightenfactor0
+\cf4 \cb5 \expnd0\expndtw0\kerning0
+\CocoaLigature1 \
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardeftab720\pardirnatural\partightenfactor0
+\cf3 \cb1 \kerning1\expnd0\expndtw0 \CocoaLigature0 helm init\
+kubectl config get-contexts\
+kubectl get svc --all-namespaces\
+\
+kubectl config use-context kind-kind\
+kubectl create clusterrolebinding add-on-cluster-admin --clusterrole=cluster-admin --serviceaccount=kube-system:default\
+helm install stable/mysql\
+helm ls\
+helm delete --purge dusty-turkey\
+helm delete --purge gilded-beetle\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardeftab720\pardirnatural\partightenfactor0
+\cf4 \cb5 \expnd0\expndtw0\kerning0
+\CocoaLigature1 \
+\
+\pard\pardeftab720\sl220\partightenfactor0
+\cf4 Install Kubectl ({\field{\*\fldinst{HYPERLINK "https://kubernetes.io/docs/tasks/tools/install-kubectl/"}}{\fldrslt \cf6 \ul \ulc6 https://kubernetes.io/docs/tasks/tools/install-kubectl/}})\cb1 \
+\cb5 * Install Docker ({\field{\*\fldinst{HYPERLINK "https://docs.docker.com/get-docker/"}}{\fldrslt \cf6 \ul \ulc6 https://docs.docker.com/get-docker/}})\cb1 \
+\
+\cb5 Minikube:\cb1 \
+\cb5 * Install Virtualbox ({\field{\*\fldinst{HYPERLINK "https://www.virtualbox.org/wiki/Downloads"}}{\fldrslt \cf6 \ul \ulc6 https://www.virtualbox.org/wiki/Downloads}}), which is a Salesforce recommended product\cb1 \
+\cb5 * Install Minikube ({\field{\*\fldinst{HYPERLINK "https://kubernetes.io/docs/tasks/tools/install-minikube/"}}{\fldrslt \cf6 \ul \ulc6 https://kubernetes.io/docs/tasks/tools/install-minikube/}})\
+* Ensure you can connect using\'a0$ kubectl config use-context minikube\
+* Ensure you can run something\'a0$ kubectl get pods --all-namespaces\
+\cb1 \
+\cb5 *or*\cb1 \
+\
+\cb5 Kind:\cb1 \
+\cb5 * Install Kind: ({\field{\*\fldinst{HYPERLINK "https://kind.sigs.k8s.io/docs/user/quick-start/"}}{\fldrslt \cf6 \ul \ulc6 https://kind.sigs.k8s.io/docs/user/quick-start/}})\cb1 \
+\cb5 * Run Kind using the following script which integrates with an ingress\cb1 \
+\
+\pard\pardeftab720\sl240\partightenfactor0
+\cf4 \cb5 cat <<EOF | kind create cluster --config=-\cb1 \
+\cb5 kind: Cluster\cb1 \
+\cb5 apiVersion:\'a0{\field{\*\fldinst{HYPERLINK "http://kind.x-k8s.io/v1alpha4"}}{\fldrslt \cf6 \ul \ulc6 kind.x-k8s.io/v1alpha4}}\cb1 \
+\cb5 nodes:\cb1 \
+\cb5 - role: control-plane\cb1 \
+\cb5 \'a0 kubeadmConfigPatches:\cb1 \
+\cb5 \'a0 - |\cb1 \
+\cb5 \'a0 \'a0 kind: InitConfiguration\cb1 \
+\cb5 \'a0 \'a0 nodeRegistration:\cb1 \
+\cb5 \'a0 \'a0 \'a0 kubeletExtraArgs:\cb1 \
+\cb5 \'a0 \'a0 \'a0 \'a0 node-labels: "ingress-ready=true"\cb1 \
+\cb5 \'a0 \'a0 \'a0 \'a0 authorization-mode: "AlwaysAllow"\cb1 \
+\cb5 \'a0 extraPortMappings:\cb1 \
+\cb5 \'a0 - containerPort: 80\cb1 \
+\cb5 \'a0 \'a0 hostPort: 80\cb1 \
+\cb5 \'a0 \'a0 protocol: TCP\cb1 \
+\cb5 \'a0 - containerPort: 443\cb1 \
+\cb5 \'a0 \'a0 hostPort: 443\cb1 \
+\cb5 \'a0 \'a0 protocol: TCP\cb1 \
+\cb5 EOF\cb1 \
+\pard\pardeftab720\sl220\partightenfactor0
+\cf4 \
+\cb5 * Using kubectl, ensure that you are switch context to your kind cluster\cb1 \
+\
+\pard\pardeftab720\sl240\partightenfactor0
+\cf4 \cb5 $ kubectl config use-context kind-kind\cb1 \
+\pard\pardeftab720\sl220\partightenfactor0
+\cf4 \
+\cb5 * Run the following so we can deploy to kind\cb1 \
+\
+\pard\pardeftab720\sl240\partightenfactor0
+\cf4 \cb5 $ \cb1 \
+\pard\pardeftab720\sl220\partightenfactor0
+\cf4 \cb5 That is it, hope all is well, and see you tomorrow.\
+Danno\
+\pard\pardeftab720\sl280\partightenfactor0
+\cf2 \cb1 \ul \
+\
+\pard\pardeftab720\sl280\partightenfactor0
+\cf2 \ulnone Helm 3\
+\pard\pardeftab720\sl280\partightenfactor0
+{\field{\*\fldinst{HYPERLINK "https://helm.sh/docs/intro/quickstart/"}}{\fldrslt 
+\f1\fs24 \cf2 \ul https://helm.sh/docs/intro/quickstart/}}
+\f1\fs24 \ul \
+\pard\pardeftab720\sl280\partightenfactor0
+
+\f0\fs28 \cf2 \ulnone \
+\pard\pardeftab720\sl380\partightenfactor0
+\cf7 \cb8 helm repo add stable https://kubernetes-charts.storage.googleapis.com/\
+helm search repo stable\
+helm repo update \
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardeftab720\pardirnatural\partightenfactor0
+
+\f2\fs30 \cf3 \cb1 \kerning1\expnd0\expndtw0 \CocoaLigature0 helm install stable/mysql --generate-name\
+\
+or \
+\
+helm install my-mysql stable/mysql
+\f0\fs28 \cf9 \cb8 \expnd0\expndtw0\kerning0
+\CocoaLigature1 \
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardeftab720\pardirnatural\partightenfactor0
+\cf3 \cb1 \kerning1\expnd0\expndtw0 \CocoaLigature0 helm list\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardeftab720\pardirnatural\partightenfactor0
+
+\f2\fs30 helm uninstall mysql-1587864254\
+\
+\pard\pardeftab720\sl380\partightenfactor0
+
+\f0\fs24 \cf7 \cb8 \expnd0\expndtw0\kerning0
+\CocoaLigature1 helm install happy-panda stable/mariadb\
+echo '\{mariadbUser: user0, mariadbDatabase: user0db\}' > config.yaml\cf9 \
+\cf7 helm install -f config.yaml stable/mariadb --generate-name\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardeftab720\pardirnatural\partightenfactor0
+
+\f2\fs30 \cf3 \cb1 \kerning1\expnd0\expndtw0 \CocoaLigature0 helm install mine --set name=value\
+helm get values mine
+\f0\fs24 \cf9 \cb8 \expnd0\expndtw0\kerning0
+\CocoaLigature1 \
+\pard\pardeftab720\sl380\partightenfactor0
+\cf9 \
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardeftab720\pardirnatural\partightenfactor0
+
+\f2\fs30 \cf3 \cb1 \kerning1\expnd0\expndtw0 \CocoaLigature0 cat values.yaml\
+\pard\pardeftab720\sl380\partightenfactor0
+
+\f3\b\fs24 \cf10 \cb8 \expnd0\expndtw0\kerning0
+\CocoaLigature1 name
+\f0\b0 \cf7 :\cf11  \cf7 value\cf11 \
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardeftab720\pardirnatural\partightenfactor0
+
+\f2\fs30 \cf3 \cb1 \kerning1\expnd0\expndtw0 \CocoaLigature0 \
+helm install mine -f values.yaml .\
+helm get values mine > myvalues.yaml
+\f0\fs24 \cf9 \cb8 \expnd0\expndtw0\kerning0
+\CocoaLigature1 \
+
+\f2\fs30 \cf3 \cb1 \kerning1\expnd0\expndtw0 \CocoaLigature0 \
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardeftab720\pardirnatural\partightenfactor0
+
+\fs42 helm get manifest good-puppy
+\f0\fs24 \cf9 \cb8 \expnd0\expndtw0\kerning0
+\CocoaLigature1 \
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardeftab720\pardirnatural\partightenfactor0
+
+\fs28 \cf7 \
+\
+\
+Install CloudBees Core\
+\
+\pard\pardeftab720\sl420\partightenfactor0
+
+\fs30 \cf12 \cb13 helm repo add nginx-stable https://helm.nginx.com/stable\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardeftab720\pardirnatural\partightenfactor0
+
+\fs28 \cf7 \cb8 \
+\
+\pard\pardeftab720\sl280\partightenfactor0
+{\field{\*\fldinst{HYPERLINK "https://hub.helm.sh/charts/cloudbees/cloudbees-core"}}{\fldrslt 
+\f1\fs24 \cf2 \cb1 \ul https://hub.helm.sh/charts/cloudbees/cloudbees-core}}\
+\pard\pardeftab720\sl380\partightenfactor0
+
+\f2\fs27\fsmilli13600 \cf14 \cb15 helm repo add cloudbees https://charts.cloudbees.com/public/cloudbees\
+\pard\pardeftab720\sl380\partightenfactor0
+
+\f0\fs28 \cf7 \cb8 helm repo update \
+\pard\pardeftab720\sl380\partightenfactor0
+
+\f2\fs27\fsmilli13600 \cf14 \cb15 \
+helm install cloudbees-core-222.1.1 cloudbees/cloudbees-core --set nginx.ingress.Enabled=true --set OperationsCenter.HostName=\'91\'92\
+\
+\pard\pardeftab720\sl320\partightenfactor0
+\cf14 \cb16 helm install \cb15 cloudbees-core-222.1.1 cloudbees/cloudbees-core\cb16  -f example-values.yaml\
+\
+\pard\pardeftab720\sl360\partightenfactor0
+{\field{\*\fldinst{HYPERLINK "https://github.com/cloudbees/cloudbees-examples/tree/master/helm-custom-value-file-examples"}}{\fldrslt 
+\f4\fs32 \cf17 \cb5 https://github.com/cloudbees/cloudbees-examples/tree/master/helm-custom-value-file-examples}}
+\f4\fs32 \cf17 \cb5 \
+\
+\pard\pardeftab720\sl320\partightenfactor0
+
+\f2\fs21\fsmilli10800 \cf18 \cb19 \
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardeftab720\pardirnatural\partightenfactor0
+
+\fs30 \cf3 \cb1 \kerning1\expnd0\expndtw0 \CocoaLigature0 helm template cloudbees-core-2.222 cloudbees/cloudbees-core   --values values.yaml --namespace default > cloudbees-core.yaml\
+\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardeftab720\pardirnatural\partightenfactor0
+
+\fs42 cat CloudBees/dev-values.yaml \
+namespace: cloudbees-ssdev\
+ingress_class: nginx-cloudbees-ssdev\
+ingress_name: cjoc-cloudbees-ssdev\
+oc_image: 460949649053.dkr.ecr.us-west-2.amazonaws.com/cicd_cjoc:2.222.1.1_dev\
+mm_image: 460949649053.dkr.ecr.us-west-2.amazonaws.com/cicd_managed_master:2.222.1.1_dev\
+agent_image: 460949649053.dkr.ecr.us-west-2.amazonaws.com/cicd_build_agent:amazonlinux\
+ingress_url: dev-build.sfdcbt.net\
+storage_class: cloudbees-ssdev-efs\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardeftab720\pardirnatural\partightenfactor0
+
+\fs30 \
+\
+\pard\pardeftab720\sl320\partightenfactor0
+
+\fs21\fsmilli10800 \cf18 \cb19 \expnd0\expndtw0\kerning0
+\CocoaLigature1 \
+\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardeftab720\pardirnatural\partightenfactor0
+
+\fs42 \cf3 \cb1 \kerning1\expnd0\expndtw0 \CocoaLigature0 helm install --dry-run --debug cloudbees-core-2.222 --namespace cloudbees-ssdev -f CloudBees/dev-values.yaml  ./CloudBees/ > myyaml.yaml}
